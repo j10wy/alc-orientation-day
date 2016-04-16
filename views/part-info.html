@@ -1,0 +1,145 @@
+<div class="panel panel-primary boxShadow">
+    <div class="panel-heading">
+        <h3>{{ cons_info.name.first + " " + cons_info.name.last }}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="part-info-section-header">Personal Information</h3>
+            </div>
+            <div class="col-xs-12">
+                <h4>{{ cons_info.name.first + " " + cons_info.name.last }}</h4>
+            </div>
+        </div>
+        <!-- Check-in Section: View for Check-in Volunteers -->
+        <div class="row">
+            <form class="form-horizontal">
+                <!-- First Name -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>First Name:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.name.first }}">
+                    </div>
+                </div>
+                <!-- Last Name -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Last Name:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.name.last }}">
+                    </div>
+                </div>
+                <!-- Username -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.user_name }}">
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.email.primary_address }}">
+                    </div>
+                </div>
+                <!-- Home Phone -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Home Phone:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.home_phone | tel }}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Mobile Phone:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.mobile_phone | tel }}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Birthdate:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.birth_date}}">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="part-info-section-header">Address Information</h3>
+            </div>
+        </div>
+        <!-- Address information -->
+        <div class="row">
+            <form class="form-horizontal">
+                <!-- Street 1 -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Street 1:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.street1 }}">
+                    </div>
+                </div>
+                <!-- Street 2 -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Street 2:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.street2 }}">
+                    </div>
+                </div>
+                <!-- City -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>City:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.city }}">
+                    </div>
+                </div>
+                <!-- State -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>State:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.state }}">
+                    </div>
+                </div>
+                <!-- ZIP -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>ZIP:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.zip }}">
+                    </div>
+                </div>
+                <!-- Country -->
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Country:</label>
+                        <input class="form-control" type="text" value="{{ cons_info.primary_address.country }}">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- AIDS/LifeCycle Information -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="part-info-section-header">AIDS/LifeCycle Information</h3>
+            </div>
+        </div>    
+            <div class="row">
+                <form class="form-horizontal">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Street 1:</label>
+                            <input class="form-control" type="text" value="{{ cons_info.primary_address.street1 }}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- End AIDS/LifeCycle Information -->
+
+        <!-- Check-In Controls -->
+        <div class="row">
+            <div class="col-xs-12">
+                <button ng-click="checkIn()" class="btn btn-success part-info">CHECK-IN</button>
+            </div>
+        </div>
+</div>
+</div>

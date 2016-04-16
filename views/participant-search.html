@@ -1,0 +1,51 @@
+<div class="panel panel-primary boxShadow">
+    <div class="panel-heading">
+        <h3>Search for a Participant</h3>
+    </div>
+    <div class="panel-body">
+        <form action="" name="consSearch" class="col-xs-12">
+            <div class="col-sm-6">
+                <input id="firstName" type="text" class="form-control input-lg" placeholder="First Name" ng-model="searchBox.first" name="searchBox.first" required minlength="1">
+            </div>
+            <div class="col-sm-6">
+                <input id="lastName" type="text" class="form-control input-lg" placeholder="Last Name" ng-model="searchBox.last" name="searchBox.last" required minlength="1">
+            </div>
+            <div class="col-sm-6">
+                <input id="alcNumber" type="number" class="form-control input-lg" placeholder="AIDS/LifeCycle Number" ng-model="searchBox.alcnum" name="searchBox.alcnum" required minlength="1">
+            </div>
+            <div class="col-sm-6">
+                <input id="teamName" type="text" class="form-control input-lg" placeholder="Team Name" ng-model="searchBox.team" name="searchBox.team" required minlength="1">
+            </div>
+        </form>
+
+        <div class="col-xs-12 table-responsive">
+
+        <div ng-if="!searchResults">Loading</div>
+            <table class="table table-hover table-striped" ng-if="searchResults">
+                <thead>
+                    <td><h5>First Name</h5></td>
+                    <td><h5>Last Name</h5></td>
+                    <td><h5>Number</h5></td>
+                    <td><h5>Team</h5></td>
+                    <td><h5>Type</h5></td>
+                    <td><h5>City</h5></td>
+                </thead>
+                <tr ng-if="searchResults.length < 1" class="search-load">
+                    <td colspan="6">
+                        <img src="img/loading.svg" />
+                    </td>    
+                </tr>
+                <tbody>
+                    <tr ng-repeat="participant in $root.searchResults | filter:searchBox | orderBy:'+last'  | limitTo:100" ng-click="open(participant)">
+                        <td>{{participant.first}}</td>
+                        <td>{{participant.last}}</td>
+                        <td>{{participant.alcnum}}</td>
+                        <td>{{participant.team}}</td>
+                        <td>{{participant.type}}</td>
+                        <td>{{participant.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

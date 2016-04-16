@@ -1,0 +1,220 @@
+{
+
+  "primary_address": {
+    "zip": "94565-2000",
+    "country": "United States",
+    "city": "Pittsburg",
+    "state": "CA"
+  },
+  "cons_id": "3123240",
+  "member_id": "003A000001XLS2PIAX",
+  "custom": {
+    
+    "boolean": [
+      {
+        "id": "custom_boolean1",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean3",
+        "content": "true"
+      },
+      {
+        "id": "custom_boolean4",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean5",
+        "content": "true"
+      },
+      {
+        "id": "custom_boolean6",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean8",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean9",
+        "content": "true"
+      },
+      {
+        "id": "custom_boolean11",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean12",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean13"
+      },
+      {
+        "id": "custom_boolean27",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean28",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean29",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean30",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean33",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean35",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean36",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean37",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean38",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean39",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean40",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean41",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean42",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean43",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean44",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean45",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean46",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean47",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean48",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean49",
+        "content": "false"
+      },
+      {
+        "id": "custom_boolean50",
+        "content": "true"
+      }
+    ],
+    "string": [
+      {
+        "id": "custom_string1",
+        "content": "STAFF"
+      },
+      {
+        "id": "custom_string2"
+      },
+      {
+        "id": "custom_string3"
+      },
+      {
+        "id": "custom_string4"
+      },
+      {
+        "id": "custom_string5"
+      },
+      {
+        "id": "custom_string6"
+      },
+      {
+        "id": "custom_string7"
+      },
+      {
+        "id": "custom_string8",
+        "content": "STAFF"
+      },
+      {
+        "id": "custom_string11",
+        "content": "I will be eating only non-vegetarian meals during the event."
+      },
+      {
+        "id": "custom_string13"
+      },
+      {
+        "id": "custom_string14"
+      },
+      {
+        "id": "custom_string16"
+      },
+      {
+        "id": "custom_string17"
+      },
+      {
+        "id": "custom_string18",
+        "content": "false"
+      },
+      {
+        "id": "custom_string19",
+        "content": "NC"
+      },
+      {
+        "id": "custom_string20"
+      },
+      {
+        "id": "custom_string22"
+      },
+      {
+        "id": "custom_string23",
+        "content": "STAFF"
+      },
+      {
+        "id": "custom_string25"
+      },
+      {
+        "id": "custom_string26"
+      },
+      {
+        "id": "custom_string27"
+      },
+      {
+        "id": "custom_string28"
+      },
+      {
+        "id": "custom_string29",
+        "content": "STAFF"
+      },
+      {
+        "id": "custom_string30",
+        "content": "Large"
+      }
+    ]
+  }
