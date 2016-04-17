@@ -41,6 +41,10 @@ img[alt="AIDS/LifeCycle logo"] {
     margin-bottom: 10px;
 }
 
+.dotr_button {
+    text-align: center;
+}
+
 /* Participant Information Screen */
 
 .form-horizontal input.form-control  {
@@ -61,6 +65,19 @@ h3.part-info-section-header {
 
 button.part-info {
     margin: 0 0 10px 20px;
+}
+
+textarea.form-control {
+    width: 99%;
+}
+
+.notes {
+    margin-left: 5px;
+}
+
+p.lead.check-in {
+    margin-left: 10px;
+    color: #989898;
 }
 
 /* Chrome Edits */

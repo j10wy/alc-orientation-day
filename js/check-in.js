@@ -55,17 +55,17 @@ onlineCheckin.run(function($rootScope, $http, $log, $firebaseArray, firebaseGetR
 onlineCheckin.service('firebaseGetRoster', function($firebaseArray, $log){
 
     //Get Firebase O-Day App
-    var fbRef = new Firebase("https://alc-oday.firebaseio.com/data"),
-    searchResults = $firebaseArray(fbRef);
+    var fbRef = new Firebase("https://alc-oday.firebaseio.com/"),
+    searchResults = $firebaseArray(fbRef.child("data"));
 
     searchResults.$loaded().then(function(){
-        $log.info("Loaded Firebase with new data stucture.");
+        $log.info("Loaded Firebase with child data.");
     });
 
     return searchResults;
     
 });
-onlineCheckin.service('luminateLogInteraction', function($http, $rootScope, $log) {
+onlineCheckin.service('LogInteraction', function($http, $rootScope, $log) {
 
     //This service is used to simplify logging interactions in Controllers
 
@@ -100,6 +100,9 @@ onlineCheckin.service('luminateLogInteraction', function($http, $rootScope, $log
 
 });
 onlineCheckin.filter('tel', function () {
+
+    //This filter format's the participant's phone number fields in views/part-info.html
+
     return function (tel) {
         if (!tel) { return ''; }
 

@@ -18,47 +18,47 @@
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>First Name:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.name.first }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.name.first }}">
                     </div>
                 </div>
                 <!-- Last Name -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Last Name:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.name.last }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.name.last }}">
                     </div>
                 </div>
                 <!-- Username -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Username:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.user_name }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.user_name }}">
                     </div>
                 </div>
                 <!-- Email -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Email:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.email.primary_address }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.email.primary_address }}">
                     </div>
                 </div>
                 <!-- Home Phone -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Home Phone:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.home_phone | tel }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.home_phone | tel }}">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Mobile Phone:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.mobile_phone | tel }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.mobile_phone | tel }}">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Birthdate:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.birth_date}}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.birth_date}}">
                     </div>
                 </div>
             </form>
@@ -75,71 +75,113 @@
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Street 1:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.street1 }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.street1 }}">
                     </div>
                 </div>
                 <!-- Street 2 -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Street 2:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.street2 }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.street2 }}">
                     </div>
                 </div>
                 <!-- City -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>City:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.city }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.city }}">
                     </div>
                 </div>
                 <!-- State -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>State:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.state }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.state }}">
                     </div>
                 </div>
                 <!-- ZIP -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>ZIP:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.zip }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.zip }}">
                     </div>
                 </div>
                 <!-- Country -->
                 <div class="col-xs-12 col-sm-6">
                     <div class="form-group">
                         <label>Country:</label>
-                        <input class="form-control" type="text" value="{{ cons_info.primary_address.country }}">
+                        <input class="form-control" readonly type="text" value="{{ cons_info.primary_address.country }}">
                     </div>
                 </div>
             </form>
         </div>
-
         <!-- AIDS/LifeCycle Information -->
         <div class="row">
             <div class="col-xs-12">
                 <h3 class="part-info-section-header">AIDS/LifeCycle Information</h3>
             </div>
-        </div>    
-            <div class="row">
-                <form class="form-horizontal">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="form-group">
-                            <label>Street 1:</label>
-                            <input class="form-control" type="text" value="{{ cons_info.primary_address.street1 }}">
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
-        <!-- End AIDS/LifeCycle Information -->
-
-        <!-- Check-In Controls -->
         <div class="row">
-            <div class="col-xs-12">
-                <button ng-click="checkIn()" class="btn btn-success part-info">CHECK-IN</button>
-            </div>
+            <form class="form-horizontal">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Type:</label>
+                        <input class="form-control" readonly type="text" value="{{ cons_info.custom.string[0].content }}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                        <label>Region:</label>
+                        <input class="form-control" readonly type="text" value="{{ cons_info.custom.string[14].content }}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6" ng-if="cons_info.custom.string[0].content === 'ROADIE'">
+                    <div class="form-group">
+                        <label>Roadie Team Assignment:</label>
+                        <input class="form-control" readonly type="text" value="{{ cons_info.custom.string[2].content }}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6" ng-if="cons_info.custom.string[0].content === 'ROADIE'">
+                    <div class="form-group">
+                        <label>Roadie Team Captain:</label>
+                        <input class="form-control" readonly type="text" value="{{ cons_info.custom.string[4].content }}">
+                    </div>
+                </div>
+            </form>
+        </div> <!-- End AIDS/LifeCycle Information -->
+
+    
+    <!-- Day On The Ride Information -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="part-info-section-header">Day On The Ride Information</h3>
+            <p class="lead check-in">Enter the number assigned to the participant at Day On The Ride.<br />Enter the letter <strong>"R"</strong> if the participant is a Roadie.</p>
         </div>
+    </div>
+    <div class="row">
+        <form action="" class="form-horizontal">
+            <div class="col-xs12 col-sm-6">
+                <div class="form-group">
+                    <label>Day On The Ride Number</label>
+                    <input ng-model="dotr_number" type="text" class="form-control" value="">
+                </div>
+            </div>         
+        </form>
+        <div class="col-xs-12">
+            <p class="lead check-in">Enter any information the participant would like to pass on to AIDS/LifeCycle</p>
+            <label class="notes">Notes:</label>
+            <textarea class="form-control notes" ng-model="notes" rows="3"></textarea>
+        </div>   
+    </div><!-- End Day On The Ride Information -->
+</div>
+
+    
+    <!-- Check-In Controls -->
+    <div class="row">
+        <div class="col-xs-12 dotr_button">
+            <img ng-if="coney" ng-src="img/coney.png" style="width:10%; margin-bottom:10px;"  alt=""><br />
+            <button ng-disabled="!dotr_number" ng-click="checkIn()" class="btn btn-success part-info">CHECK-IN</button>
+        </div>
+    </div>
 </div>
 </div>
