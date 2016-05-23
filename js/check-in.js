@@ -20,19 +20,28 @@ onlineCheckin.config(function($routeProvider) {
             templateUrl: "views/part-info.html",
                controller: "participantInformation"
         })
+        .when("/incentives", {
+            templateUrl: "views/incentives.html",
+            controller: "incentivesSearch"
+        })
+        .when("/incentives/:cons_id", {
+            templateUrl: "views/incentives-info.html",
+            controller: "incentivesCtrl"
+        })
         .otherwise({
             templateUrl: "views/404.html"
         });
 
 });
 
-onlineCheckin.run(function($rootScope, $http, $log, $firebaseArray, firebaseGetRoster) {
+onlineCheckin.run(function($rootScope, $http, $log, $location, $firebaseArray, firebaseGetRoster) {
 
     //Luminate API Settings
     $rootScope.header = {'Content-Type': 'application/x-www-form-urlencoded'};
     $rootScope.uri = "https://actnow.tofighthiv.org/site/";
     $rootScope.postdata = "&api_key=4E7231022132358DD8&v=1.0&response_format=json";
     $rootScope.sso_auth_token = "";
+    $rootScope.fr_id = "1880";
 
     //Get the TeamRaiser Roster from FirebaseGetRoster service
     $rootScope.searchResults = firebaseGetRoster;
@@ -40,6 +49,10 @@ onlineCheckin.run(function($rootScope, $http, $log, $firebaseArray, firebaseGetR
     //Log-in states
     $rootScope.loggedIn = false;
     $rootScope.logInError = false;
+
+    if($rootScope.loggedIn === false) {
+        $location.path('/login'); 
+    }
 
     //Include the 'ipCookie' module
     // if($rootScope.sso_auth_token.length !== 0) {
@@ -52,6 +65,7 @@ onlineCheckin.run(function($rootScope, $http, $log, $firebaseArray, firebaseGetR
     // }
 
 });
+
 onlineCheckin.service('firebaseGetRoster', function($firebaseArray, $log){
 
     //Get Firebase O-Day App

@@ -1,0 +1,6 @@
+See list of participants
+Get participant
+See participant info in a field (editable)
+Get list of incentives
+Check fundraising level
+Give incentive if necessary

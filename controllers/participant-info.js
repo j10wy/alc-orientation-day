@@ -1,72 +1,123 @@
 // Include after app module and participant-search.js
-onlineCheckin.controller('participantInformation', function($scope, $timeout, LogInteraction, $http, $rootScope, $log, $routeParams, $location, $firebaseArray, $firebaseObject) {
+onlineCheckin.controller('participantInformation', function($scope, $timeout, LogInteraction, constituentService, $http, $rootScope, $log, $routeParams, $location, $firebaseArray, $firebaseObject) {
 
-	// Get the participant's Consituent ID from the URL
+    // Get the participant's Consituent ID from the URL
     $scope.cons_id = $scope.$routeParams = $routeParams.cons_id;
+    $scope.alcnum = "";
 
     // GET Participant's info from Firebase data
     var fbCons = new Firebase("https://alc-oday.firebaseio.com/data/" + $scope.cons_id);
     $scope.fireBaseCons = $firebaseObject(fbCons);
 
-    // Initialize the DOTR Number field and set Coney Success image to false
-    $scope.dotr_number = "";
+    $scope.fireBaseCons.$loaded(function() {
+        console.log("** FIREBASE CONS **:", $scope.fireBaseCons.alcnum);
+        $scope.alcnum = $scope.fireBaseCons.alcnum;
+    });
+
+    // Initialize notes field, waiver, and set Coney Success image to false
     $scope.notes = ""
+    $scope.waiver = false;
     $scope.coney = false;
 
-        // Create the cons_info Object
-        $scope.cons_info = {};
+    // Create the cons_info Object
+    $scope.cons_info = {};
 
-        // Setup $HTTP request for Constituent Information
-        var luminateServlet = "CRConsAPI",
-        luminateMethod = "method=getUser",
-        consId = "&cons_id=",
-        sso_auth_token = "&sso_auth_token=" + $rootScope.sso_auth_token;
+    var test = constituentService.getConsRecord($scope.cons_id);
 
-        // HTTP Request for Participant's Constituent profile information
-        $http({
-            method: 'POST',
-            url: $rootScope.uri + luminateServlet,
-            data: luminateMethod + $rootScope.postdata + consId + $scope.cons_id + sso_auth_token,
-            headers: $rootScope.header
-        }).then(function(responseData) {
-            
-            //Success
-            //Update cons_info with the Constituent json response
-            $scope.cons_info = responseData.data.getConsResponse;
+    test.then(function(data) {
+        $scope.cons_info = data.data.getConsResponse;
+        console.log("CONS:", $scope.cons_info);
+        console.log("ROOT:", $rootScope);
 
-            console.log("Here is the cons_info:", $scope.cons_info)
+        var customBooleans = $scope.cons_info.custom.boolean;
+        var customStrings = $scope.cons_info.custom.string;
 
-        }, function(responseData) {
+        $scope.groupArray = [].concat(customBooleans, customStrings);
+        console.log("Group array:", $scope.groupArray);
 
-            //Error
-            $log.error("Could not retrieve cons_info");
-            $log.error(responseData);
+        //Angular forEach testing Custom Strings
+        angular.forEach($scope.groupArray, function(value, key) {
+
+            var cons_customId = value.id;
+            var cons_customContent = value.content;
+
+            switch (cons_customId) {
+
+                case "custom_boolean3":
+                    // Medical Form Complete
+                    $scope.medform = cons_customContent === "true" ? "Yes" : "No";
+                    break;
+
+                case "custom_boolean13":
+                    // Bike Parking boolean
+                    $scope.donorServices = (cons_customContent === "true") ? true : false;
+                    break;
+
+                case "custom_string3":
+                    // Roadie Team Assignment
+                    $scope.roadieTeamAssignment = cons_customContent;
+                    break;
+
+                case "custom_string5":
+                    // Roadie Team Captain
+                    $scope.roadieTeamCaptain = cons_customContent;
+                    break;
+
+                case "custom_string9":
+                    // Tent Address
+                    $scope.tentAddress = cons_customContent;
+                    break;
+
+                case "custom_string11":
+                    // Meal Preference
+                    $scope.mealPreference = cons_customContent;
+                    break;
+
+                case "custom_string14":
+                    // Tent Keyword
+                    $scope.tentKeyword = cons_customContent;
+                    break;
+
+                case "custom_string19":
+                    // ALC Region
+                    $scope.alcRegion = cons_customContent;
+                    break;
+            }
         });
 
+        console.log("Complete Scope:", $scope);
 
-        $scope.checkIn = function () {
+    });
 
-            //Set date string
-            var date = new Date().toString();
+    $scope.checkIn = function() {
 
-            //Log a check-in interaction in Luminate
-            LogInteraction.log($scope.cons_id,$scope.notes);
+        var fbCheckin = new Firebase("https://alc-oday.firebaseio.com/checkin");
 
-            //Pass check-in time to Firebase
-            fbCons.update({
-                checkedin:date,
-                dotr_number:$scope.dotr_number
-            });
-
-            console.log("Parent path:",fbCons.parent().parent().toString());
-
-            //Display Coney
-            $scope.coney = true;
-
-            //Return to Search
-            $timeout(function(){
-                $location.path('/search'); 
-            }, 2000);
-
+        //Set date string
+        var date = new Date().toDateString();
+        var checkinObject = {
+           medform: $scope.medform,
+           donorServices: $scope.donorServices,
+           tentAddress: $scope.tentAddress,
+           waiver: $scope.waiver,
+           checkinTime: date
         }
+
+        //Log a check-in interaction in Luminate
+        LogInteraction.log($scope.cons_id, $scope.notes);
+
+        //Pass check-in time to Firebase
+        fbCheckin.child($scope.cons_id).update(checkinObject);
+
+        console.log("Parent path:", fbCons.parent().parent().toString());
+
+        //Display Coney
+        $scope.coney = true;
+
+        //Return to Search
+        $timeout(function() {
+            $location.path('/search');
+        }, 1000);
+
+    }
 });

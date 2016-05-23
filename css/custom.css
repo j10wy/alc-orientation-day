@@ -2,8 +2,7 @@ body {
     background: #1b3c6c url(../img/bg.jpg) no-repeat top center;
     padding-top: 100px
 }
-
-form,
+form
 input {
     display: block;
 }
@@ -58,9 +57,11 @@ img[alt="AIDS/LifeCycle logo"] {
 
 h3.part-info-section-header {
     border: 1px solid grey;
+    font-size: 18px;
     border-radius: 5px;
     padding:10px;
-    background-color: rgb(228, 228, 228);
+    background-color: #00345D;
+    color:white;
 }
 
 button.part-info {
@@ -78,6 +79,28 @@ textarea.form-control {
 p.lead.check-in {
     margin-left: 10px;
     color: #989898;
+}
+
+/* Particiapnt Incentive Information Screen */
+
+.panel-body.incentives .row {
+    margin-bottom: 25px;
+}
+
+ select {
+    padding:10px;
+    font-size: 18px;
+    border: 0;
+}
+
+div.divider {
+    height: 1px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.fundraising {
+    color:green;
 }
 
 /* Chrome Edits */

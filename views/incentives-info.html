@@ -1,0 +1,356 @@
+<div class="panel panel-primary boxShadow">
+    <div class="panel-heading">
+        <h3>{{ cons_info.name.first + " " + cons_info.name.last }}</h3>
+    </div>
+    <div class="panel-body incentives">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="part-info-section-header">Participant Information</h3>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <h3>{{ cons_info.name.first + " " + cons_info.name.last }}</h3>
+                <h4>{{ cons_info.email.primary_address }}</h4>
+                <h4>{{ cons_info.home_phone | tel }}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <h4>Fundraising Total:</h4>
+                <h2 class="fundraising">{{participantProgress.raised/100 | currency}}</h2>
+            </div>
+        </div>
+        <div class="row">
+              <div class="col-xs-12">
+                <h3 class="part-info-section-header">Incentives</h3>
+            </div>
+        </div>
+<!--         <div class="row" ng-repeat="(incentive, status) in incentives">
+            <div class="col-xs-12">
+                <h3>{{incentive}}</h3>
+                <div class="divider"></div>
+            </div>
+            <div class="col-xs-6">
+                <h4>Status:</h4>
+                <select name="size" id="size">
+                    <option value="">{{status}}</option>
+                    <option>Complete</option>
+                    <option>Mail</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <h4>Size:</h4>
+                <select>
+                    <option>....</option>
+                    <option>---- MENS ----</option>
+                    <option value="MXS">X-Small</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option value="M3ML">3X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WXS">X-Small</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                    <option value="W3ML">3X Large</option>
+                </select>
+            </div>
+        </div> -->
+        
+        <div class="row" ng-if="roadieBeanie">
+            <div class="col-xs-12">
+                <h3>Roadie Beanie</h3>
+                <div class="divider"></div>
+            </div>
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+                    <option>{{roadieBeanie}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="size" id="size">
+                    <option value="OS">OS</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="roadieHoodie">
+            <div class="col-xs-12">
+                <h3>Roadie Hoodie</h3>
+                <div class="divider"></div>
+            </div>
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+                    <option>{{roadieHoodie}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="fleeceSize" id="fleeceSize">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">X-Large</option>
+                    <option value="2XL">2X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="roadieVest">
+            <div class="col-xs-12">
+                <h3>Roadie Fleece Vest</h3>
+                <div class="divider"></div>
+            </div>
+
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+                    <option>{{roadieVest}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="fleeceSize" id="fleeceSize">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">X-Large</option>
+                    <option value="2XL">2X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="fiveKJersey">
+            <div class="col-xs-12">
+                <h3>5K Jersey</h3>
+                <div class="divider"></div>
+            </div>
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+                    <option>{{fiveKJersey}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="jersey5KSize" id="jersey5KSize">
+                    <option>---- MENS ----</option>
+                    <option value="MXS">X-Small</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option value="M3ML">3X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WXS">X-Small</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                    <option value="W3ML">3X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="false" ng-if="tenKJersey">
+            <div class="col-xs-12">
+                <h3>10K Jersey</h3>
+                <div class="divider"></div>
+            </div>
+
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+            <option>{{tenKJersey}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="jersey10KSize" id="jersey10KSize">
+                    <option>---- MENS ----</option>
+                    <option value="MXS">X-Small</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option value="M3ML">3X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WXS">X-Small</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                    <option value="W3ML">3X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="tenKShorts">
+            <div class="col-xs-12">
+                <h3>10K Shorts</h3>
+                <div class="divider"></div>
+            </div>
+
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+            <option>{{tenKShorts}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="shortsSize" id="shortsSize">
+                    <option>---- MENS ----</option>
+                    <option value="MXS">X-Small</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option value="M3ML">3X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WXS">X-Small</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                    <option value="W3ML">3X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="fifteenKJacket">
+            <div class="col-xs-12">
+                <h3>15K Jacket</h3>
+                <div class="divider"></div>
+            </div>
+
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+            <option>{{fifteenKJacket}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="jacketSize" id="jacketSize">
+                    <option>---- MENS ----</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="top50">
+            <div class="col-xs-12">
+                <h3>Top 50 Jersey</h3>
+                <div class="divider"></div>
+            </div>
+
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+            <option>{{top50}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="top50Size" id="top50Size">
+                    <option>---- MENS ----</option>
+                    <option value="MXS">X-Small</option>
+                    <option value="MS">Small</option>
+                    <option value="MM">Medium</option>
+                    <option value="ML">Large</option>
+                    <option value="MXL">X-Large</option>
+                    <option value="M2XL">2X Large</option>
+                    <option value="M3ML">3X Large</option>
+                    <option>---- WOMENS ----</option>
+                    <option value="WXS">X-Small</option>
+                    <option value="WS">Small</option>
+                    <option value="WM">Medium</option>
+                    <option value="WL">Large</option>
+                    <option value="WXL">X-Large</option>
+                    <option value="W2XL">2X Large</option>
+                    <option value="W3ML">3X Large</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="top545">
+            <div class="col-xs-12">
+                <h3>Top 545 Cycling Cap</h3>
+                <div class="divider"></div>
+            </div>
+            <div class="col-xs-6">
+            <h4>Status:</h4>
+            <select name="size" id="size">
+            <option>{{top545}}</option>
+                    <option>-----</option>
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+            <h4>Change Size:</h4>
+            <select name="capSize" id="capSize">
+                    <option value="mailed">Mail</option>
+                    <option value="pickip">Pick-up</option>
+                    <option value="complete">Complete</option>
+            </select>
+            </div>
+        </div>
+    </div>
+    <!-- Check-In Controls -->
+    <div class="row">
+        <div class="col-xs-12 dotr_button">
+            <img ng-if="coney" ng-src="img/coney.png" style="width:10%; margin-bottom:10px;" alt="">
+            <br />
+            <button ng-click="submitIncentives()" class="btn btn-success part-info">SUBMIT</button>
+        </div>
+    </div>
+</div>
+</div>
